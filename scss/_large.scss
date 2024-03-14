@@ -1,0 +1,40 @@
+header,
+main,
+footer {
+  max-width: 75rem;
+  margin: auto;
+}
+
+h1 {
+  margin-bottom: 50px;
+  font-size: 3rem;
+}
+
+main {
+  .sectionOne p,
+  h2 {
+    text-align: left;
+  }
+  .paddingRight {
+    padding-right: 30px;
+  }
+
+  .androidCol {
+    padding-top: 10px;
+  }
+  .alternativesCol {
+    padding-top: 10px;
+  }
+  .sectionTwoBgColor {
+    margin-bottom: 30px;
+  }
+}
+
+// Sass For Loop
+
+@for $i from 1 through 12 {
+  $w: calc($i / 12) * 100%;
+  .large-#{$i} {
+    flex-basis: $w;
+  }
+}

@@ -1,0 +1,61 @@
+header {
+  padding: 15px $gutter 5px;
+  h1 {
+    font-size: 2rem;
+  }
+
+  #primaryNav {
+    margin: 0;
+    font-weight: 800;
+  }
+
+  nav {
+    button {
+      display: none;
+    }
+
+    ul,
+    ul.open {
+      display: flex;
+      border: none;
+      background-color: transparent;
+      position: relative;
+      top: 15px;
+      right: 0;
+      li.active a {
+        border-bottom: 3px solid $activeColor;
+        background-color: transparent;
+      }
+      li {
+        border: none;
+      }
+    }
+  }
+}
+
+main {
+  padding-top: 50px;
+  .tabletsCol {
+    padding-top: 10px;
+    padding-right: 5px;
+  }
+  .i33Col {
+    padding-top: 10px;
+    padding-left: 5px;
+  }
+  .androidCol {
+    padding-right: 5px;
+  }
+  .alternativesCol {
+    padding-left: 5px;
+  }
+}
+
+// Sass For Loop
+
+@for $i from 1 through 12 {
+  $w: calc($i / 12) * 100%;
+  .medium-#{$i} {
+    flex-basis: $w;
+  }
+}

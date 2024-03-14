@@ -1,0 +1,256 @@
+/* Prevent adjustments of font size after orientation changes.  */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  height: 100%;
+}
+
+/*---- apply a natural box layout model to all elements -------*/
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $baseFontFamily;
+  height: 100%;
+  font-weight: $base;
+  font-size: 16px;
+}
+
+// HEADINGS
+
+h1 {
+  font-family: $displayFontFamily;
+  font-weight: 900;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0;
+  color: #890620;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-family: $displayFontFamily;
+  margin: 0 0 20px;
+  color: #307473;
+}
+
+h3 {
+  font-size: 1rem;
+  font-family: $displayFontFamily;
+  margin: 10px 0 15px;
+}
+
+// HEADER WRAPPER
+
+#headerWrapper {
+  background-color: white;
+}
+
+// HEADER
+
+header {
+  display: flex;
+  padding: 16px $gutter;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+
+  // NAVIGATION
+
+  nav {
+    font-family: $navBarFontFamily;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: right;
+
+    // HAMBURGER BUTTON
+
+    button {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      padding-top: 15px;
+      padding-right: 20px;
+      font-size: 2.2rem;
+      color: black;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button span:nth-child(1) {
+      display: block;
+    }
+    button span:nth-child(2) {
+      display: none;
+    }
+    button.open span:nth-child(1) {
+      display: none;
+    }
+    button.open span:nth-child(2) {
+      display: block;
+    }
+
+    #xBtn {
+      padding-right: 5px;
+    }
+
+    // UNORDERED LIST
+
+    ul {
+      background-color: $accentColor;
+      position: absolute;
+      right: 45px;
+      top: 80px;
+      border-radius: 9px;
+      padding-inline-start: 0px;
+      display: none;
+      width: 50%;
+      border-top: solid 1px rgba(255, 255, 255, 0.2);
+      li {
+        border-bottom: 1px solid lightgray;
+      }
+      li.active a {
+        color: $activeColor;
+        background-color: lightgray;
+      }
+    }
+
+    ul.open {
+      display: block;
+      margin: 0;
+    }
+
+    ul li a:hover {
+      color: $activeColor;
+    }
+
+    li {
+      border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+      list-style-type: none;
+      a {
+        display: block; // this is to be able to apply padding
+        text-decoration: none;
+        color: black;
+        padding: 0.9rem;
+      }
+    }
+  }
+}
+
+// MAIN TAG
+
+main {
+  padding: 0 $gutter 0;
+  p {
+    margin: 0;
+    padding-bottom: 30px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 0;
+    border-radius: 12px;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 20px;
+    }
+  }
+
+  .col {
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .sectionTwo {
+    text-align: left;
+  }
+
+  .sectionTwoBgColor {
+    background-color: $accentColor;
+    padding: 50px 0;
+    img {
+      max-width: 150px;
+    }
+  }
+
+  .tabletsCol {
+    padding-top: 30px;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 15px;
+    }
+  }
+
+  .i33Col {
+    padding-right: 5px;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 15px;
+    }
+  }
+
+  .androidCol {
+    padding-left: 5px;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 15px;
+    }
+  }
+
+  .alternativesCol {
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+// FOOTER WRAPPER
+
+#footerWrapper {
+  background-color: black;
+}
+
+// FOOTER
+
+footer {
+  padding: 0.9rem $gutter;
+  color: white;
+  text-align: center;
+  p {
+    margin: 0;
+    font-weight: $extraLight;
+  }
+}
+
+// Sass For Loop
+
+@for $i from 1 through 12 {
+  $w: calc($i / 12) * 100%;
+  .small-#{$i} {
+    flex-basis: $w;
+  }
+}
+
+.paddingRight {
+  padding-right: 10px;
+}
